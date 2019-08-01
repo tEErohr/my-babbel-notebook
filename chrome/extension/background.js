@@ -24,13 +24,3 @@ promisifyAll(chrome.storage, ['local']);
 require('./background/contextMenus');
 require('./background/inject');
 require('./background/badge');
-
-const addToCurrentList = (word) => {
-  console.log('addToCurrentList', word);
-};
-
-chrome.contextMenus.create({
-  title: 'Search in UrbanDictionary',
-  contexts: ['selection'], // ContextType
-  onclick: addToCurrentList // A callback function
-});
