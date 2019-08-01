@@ -79,3 +79,8 @@ See [autoupdate guide](https://developer.chrome.com/extensions/autoupdate) for m
 ## LICENSE
 
 [MIT](LICENSE) - is it?
+
+## Inspiration
+
+
+![alt text](https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/02/A2RJXE-920x584.jpg "cool")
