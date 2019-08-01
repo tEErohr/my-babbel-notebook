@@ -1,19 +1,17 @@
 const { fetchMetadata } = require('./meta');
-const cuid = require('cuid')
+const cuid = require('cuid');
 
 const addToCurrentList = (word) => {
   const { pageUrl, selectionText } = word;
-  console.log('addToCurrentList', { pageUrl, selectionText });
   return fetchMetadata(pageUrl).then((metadata) => {
-    console.log('metadata', metadata);
     const entry = {
       id: cuid(),
       metadata,
       url: pageUrl,
       text: selectionText,
-      created_at: new Date(),
+      created_at: new Date()
     };
-    console.log(entry)
+    console.log(entry);
   });
 };
 
