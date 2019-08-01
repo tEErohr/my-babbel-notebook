@@ -61,7 +61,7 @@
 .todoList li label {
   white-space: pre-line;
   word-break: break-all;
-  padding: 15px 60px 15px 15px;
+  padding: 15px 60px 5px 15px;
   margin-left: 45px;
   display: block;
   line-height: 1.2;

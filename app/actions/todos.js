@@ -8,6 +8,10 @@ export function deleteTodo(id) {
   return { type: types.DELETE_TODO, id };
 }
 
+export function toggleDataDisplay(id) {
+  return { type: types.TOGGLE_DATA_DISPLAY, id };
+}
+
 export function editTodo(id, text) {
   return { type: types.EDIT_TODO, id, text };
 }
