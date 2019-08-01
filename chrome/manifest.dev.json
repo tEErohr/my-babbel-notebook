@@ -1,8 +1,8 @@
 {
   "version": "0.0.0",
-  "name": "react-chrome-extension-example",
+  "name": "My Babbel Notebook",
   "manifest_version": 2,
-  "description": "Example for react-chrome-extension-boilerplate",
+  "description": "Save phrases from web and share them with Babbel",
   "browser_action": {
     "default_title": "React Chrome Extension Example",
     "default_popup": "popup.html"
