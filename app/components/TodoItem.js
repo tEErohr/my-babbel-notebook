@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import TodoTextInput from './TodoTextInput';
 import style from './TodoItem.css';
+import * as base64 from '../utils/base64';
+import { hostFromURL } from '../utils/url';
 
 export default class TodoItem extends Component {
   static propTypes = {
@@ -52,15 +54,12 @@ export default class TodoItem extends Component {
 
   render() {
     const { todo } = this.props;
+    const host = hostFromURL(todo.url);
 
     let element;
     if (this.state.editing) {
       element = (
-        <TodoTextInput
-          text={todo.text}
-          editing={this.state.editing}
-          onSave={this.handleSave}
-        />
+        <TodoTextInput text={todo.text} editing={this.state.editing} onSave={this.handleSave} />
       );
     } else {
       element = (
@@ -71,15 +70,18 @@ export default class TodoItem extends Component {
             checked={todo.completed}
             onChange={this.handleComplete}
           />
+          <img
+            width={32}
+            height={32}
+            src={`http://localhost:9090/fetch?url=${base64.encode(todo.url)}`}
+          />
           <label
             className={todo.displayData ? style.rotateMe : null}
             onClick={this.handleDataDisplay}
           >
             {todo.text}
           </label>
-          <ul
-            className={todo.displayData ? style.dataList : style.dataListHidden}
-          >
+          <ul className={todo.displayData ? style.dataList : style.dataListHidden}>
             <li className={style.dataItem}>{todo.url}</li>
             <li className={style.dataItem}>{todo.created_at}</li>
           </ul>

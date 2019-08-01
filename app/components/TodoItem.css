@@ -7,7 +7,8 @@
   top: 0;
   bottom: 0;
   margin: auto 0;
-  border: none; /* Mobile Safari */
+  border: none;
+  /* Mobile Safari */
   -webkit-appearance: none;
   -moz-appearance: none;
 }
