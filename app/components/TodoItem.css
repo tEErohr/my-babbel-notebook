@@ -22,6 +22,7 @@
 }
 
 .normal label {
+  margin-left: 0 !important;
   white-space: pre-line;
   word-break: break-all;
   padding: 15px 60px 5px 15px;
@@ -131,4 +132,12 @@
 
 .dataListHidden {
   display: none;
+}
+
+.view {
+  display: flex;
+}
+
+.view img {
+  padding: 15px 0 5px 15px;
 }

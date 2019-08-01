@@ -59,31 +59,40 @@ export default class TodoItem extends Component {
     let element;
     if (this.state.editing) {
       element = (
-        <TodoTextInput text={todo.text} editing={this.state.editing} onSave={this.handleSave} />
+        <TodoTextInput
+          text={todo.text}
+          editing={this.state.editing}
+          onSave={this.handleSave}
+        />
       );
     } else {
       element = (
-        <div className={style.view}>
-          <input
-            className={style.toggle}
-            type="checkbox"
-            checked={todo.completed}
-            onChange={this.handleComplete}
-          />
-          <img
-            width={32}
-            height={32}
-            src={`http://localhost:9090/fetch?url=${base64.encode(todo.url)}`}
-          />
-          <label
-            className={todo.displayData ? style.rotateMe : null}
-            onClick={this.handleDataDisplay}
+        <div>
+          <div className={style.view}>
+            <img
+              width={32}
+              height={32}
+              alt="site logo"
+              src={`http://localhost:9090/fetch?url=${base64.encode(todo.url)}`}
+            />
+            <label
+              className={todo.displayData ? style.rotateMe : null}
+              onClick={this.handleDataDisplay}
+            >
+              {todo.text}
+            </label>
+          </div>
+          <ul
+            className={todo.displayData ? style.dataList : style.dataListHidden}
           >
-            {todo.text}
-          </label>
-          <ul className={todo.displayData ? style.dataList : style.dataListHidden}>
-            <li className={style.dataItem}>{todo.url}</li>
-            <li className={style.dataItem}>{todo.created_at}</li>
+            <li className={style.dataItem}>
+              <a target="_blank" rel="noopener noreferrer" href={todo.url}>
+                {todo.url}
+              </a>
+            </li>
+            <li className={style.dataItem}>
+              {new Date(todo.created_at).toDateString()}
+            </li>
           </ul>
           <button className={style.destroy} onClick={this.handleDelete} />
         </div>
