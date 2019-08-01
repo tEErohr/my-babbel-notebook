@@ -77,7 +77,6 @@ export default class MainSection extends Component {
 
     return (
       <section className={style.main}>
-        {this.renderToggleAll(completedCount)}
         <ul className={style.todoList}>
           {filteredTodos.map(todo =>
             <TodoItem key={todo.id} todo={todo} {...actions} />

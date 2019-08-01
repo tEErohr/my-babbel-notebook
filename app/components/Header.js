@@ -2,7 +2,6 @@ import React, { PropTypes, Component } from 'react';
 import TodoTextInput from './TodoTextInput';
 
 export default class Header extends Component {
-
   static propTypes = {
     addTodo: PropTypes.func.isRequired
   };
@@ -14,15 +13,6 @@ export default class Header extends Component {
   };
 
   render() {
-    return (
-      <header>
-        <h1>My Babbel Notebook</h1>
-        {/* <TodoTextInput
-          newTodo
-          onSave={this.handleSave}
-          placeholder="What needs to be done?"
-        /> */}
-      </header>
-    );
+    return <img src={require('./Header.svg')} />;
   }
 }
