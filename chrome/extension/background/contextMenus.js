@@ -12,11 +12,10 @@ const addToCurrentList = (word) => {
       text: selectionText,
       created_at: new Date()
     };
-    console.log(entry);
     store
       .loadStore()
       .then((data) => {
-        const entries = data.todos;
+        const entries = data.todos || [];
         entries.push(entry);
         return {
           todos: entries
