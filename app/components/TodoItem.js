@@ -4,7 +4,6 @@ import TodoTextInput from './TodoTextInput';
 import style from './TodoItem.css';
 
 export default class TodoItem extends Component {
-
   static propTypes = {
     todo: PropTypes.object.isRequired,
     editTodo: PropTypes.func.isRequired,
@@ -38,6 +37,14 @@ export default class TodoItem extends Component {
     completeTodo(todo.id);
   };
 
+  handleDataDisplay = () => {
+    const { todo, toggleDataDisplay } = this.props;
+
+    toggleDataDisplay(todo.id, !todo.displayData);
+
+    // deleteTodo(todo.id);
+  };
+
   handleDelete = () => {
     const { todo, deleteTodo } = this.props;
     deleteTodo(todo.id);
@@ -64,13 +71,19 @@ export default class TodoItem extends Component {
             checked={todo.completed}
             onChange={this.handleComplete}
           />
-          <label onDoubleClick={this.handleDoubleClick}>
+          <label
+            className={todo.displayData ? style.rotateMe : null}
+            onClick={this.handleDataDisplay}
+          >
             {todo.text}
           </label>
-          <button
-            className={style.destroy}
-            onClick={this.handleDelete}
-          />
+          <ul
+            className={todo.displayData ? style.dataList : style.dataListHidden}
+          >
+            <li className={style.dataItem}>{todo.url}</li>
+            <li className={style.dataItem}>{todo.created_at}</li>
+          </ul>
+          <button className={style.destroy} onClick={this.handleDelete} />
         </div>
       );
     }
