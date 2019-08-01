@@ -2,7 +2,7 @@ function loadStore() {
   return new Promise((resolve) => {
     chrome.storage.local.get(resolve);
   }).then((data) => {
-    const parsed = JSON.parse(data.state);
+    const parsed = JSON.parse(data.state || '{}');
     return parsed;
   });
 }
