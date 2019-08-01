@@ -1,4 +1,5 @@
 const { fetchMetadata } = require('./meta');
+const store = require('./store');
 const cuid = require('cuid');
 
 const addToCurrentList = (word) => {
@@ -12,6 +13,16 @@ const addToCurrentList = (word) => {
       created_at: new Date()
     };
     console.log(entry);
+    store
+      .loadStore()
+      .then((data) => {
+        const entries = data.todos;
+        entries.push(entry);
+        return {
+          todos: entries
+        };
+      })
+      .then(data => store.saveStore(data));
   });
 };
 
